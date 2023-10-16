@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="UTF-8" />
+   <title>Data Viewer</title>
+   <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+   <h1>Data Viewer
+      <span class="infoButton">ⓘ
+         <span class="tooltipText">
+            You can Flag samples using Ctrl + Click.
+            <br>
+            Then use the Console (flaggedSamples variable).
+         </span>
+      </span>
+   </h1>
+
+
+   <script>
+      window.GPTTConfig = {
+         uuid: "18be0579d0f14f1b9a01f077a8561be6",
+      }
+   </script>
+   <script src="https://app.gpt-trainer.com/widget-asset.js" defer>
+   </script>
+
+
+   <div id="inputContainer">
+      <div id="predictedLabelContainer"></div>
+   </div>
+
+   <div id="chartContainer">
+      <div id="confusionContainer"></div>
+   </div>
+
+
+   <div class="wrapper">
+      <div class="candles">
+         <div class="light__wave"></div>
+         <div class="candle1">
+            <div class="candle1__body">
+               <div class="candle1__eyes">
+                  <span class="candle1__eyes-one"></span>
+                  <span class="candle1__eyes-two"></span>
+               </div>
+               <div class="candle1__mouth"></div>
+            </div>
+            <div class="candle1__stick"></div>
+         </div>
+
+         <div class="candle2">
+            <div class="candle2__body">
+               <div class="candle2__eyes">
+                  <div class="candle2__eyes-one"></div>
+                  <div class="candle2__eyes-two"></div>
+               </div>
+            </div>
+            <div class="candle2__stick"></div>
+         </div>
+         <div class="candle2__fire"></div>
+         <div class="sparkles-one"></div>
+         <div class="sparkles-two"></div>
+         <div class="candle__smoke-one">
+
+         </div>
+         <div class="candle__smoke-two">
+
+         </div>
+
+      </div>
+      <div class="floor">
+      </div>
+
+
+   </div>
+   <!-- partial -->
+   <div id="controlPanel">
+      <button onClick="toggleInput()">Toggle Input</button>
+      <button onClick="toggleOutput()">Toggle Output</button>
+      <div id="statistics"></div>
+   </div>
+
+
+
+   <div id="container"></div>
+
+   <div id="controlPanel2">
+      <button onClick="redirectToSketchRNN()">Toggle Input2</button>
+      <button onClick="redirectToReferences()">References</button>
+      <div id="statistics"></div>
+   </div>
+
+   <script>
+      function redirectToSketchRNN() {
+         window.location.href = "sketchrnn.html";
+      }
+
+      function redirectToReferences() {
+         window.location.href = "References.html";
+      }
+   </script>
+
+   <script src="../common/js_objects/training.js"></script>
+   <script src="../common/js_objects/testing.js"></script>
+   <script src="../common/js_objects/minMax.js"></script>
+
+   <script src="../common/constants.js"></script>
+   <script src="../common/utils.js"></script>
+   <script src="../common/geometry.js"></script>
+   <script src="../common/draw.js"></script>
+   <script src="../common/featureFunctions.js"></script>
+   <script src="../common/classifiers/knn.js"></script>
+
+   <script src="js/display.js"></script>
+   <script src="js/sketchPad.js"></script>
+   <script src="js/dataCleaner.js"></script>
+
+   <script src="./chart/graphics.js"></script>
+   <script src="./chart/math.js"></script>
+   <script src="./chart/chart.js"></script>
+   <script src="./chart/confusion.js"></script>
+
+
+   <script>
+
+      // Initializing the Sketch Pad
+      const sketchPad = new SketchPad(inputContainer, onDrawingUpdate);
+      sketchPad.canvas.style.cssText +=
+         "outline:10000px solid rgba(255,255,255,0.7);";
+
+      function onDrawingUpdate(paths) {
+            const functions = featureFunctions.inUse.map((f) => f.function);
+            point = functions.map((f) => f(paths));
+            utils.normalizePoints([point], minMax);
+            const { label, nearestSamples } = kNN.predict(point);
+            predictedLabelContainer.innerHTML = "Is it a " + label + " ?";
+            chart.showDynamicPoint(point, label, nearestSamples);
+         }
+   </script>
+</body>
+
+</html>

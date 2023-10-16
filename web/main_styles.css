@@ -1,0 +1,758 @@
+body {
+  font-family: Arial;
+  overscroll-behavior: none;
+  touch-action: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: #53026b;
+  /* Dark gray background */
+  color: white;
+  margin: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  background-image: url('7706249.jpg');
+  background-size: cover;
+  filter: blur(10px);
+  /* Apply a blur effect to the background image */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  /* Place the pseudo-element below the content */
+}
+
+
+
+
+/* Rest of your styles here */
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  /* Make the width twice as wide to cover the screen */
+  height: 100%;
+  animation: slideBackground 20s linear infinite;
+  /* Adjust the duration and timing function */
+}
+
+.image1 {
+  background-image: url('7706249.jpg');
+  background-size: cover;
+  filter: blur(10px);
+}
+
+.image2 {
+  background-image: url('35645.jpg');
+  /* Add your second image */
+  background-size: cover;
+  filter: blur(10px);
+  opacity: 0.5;
+  /* Adjust the opacity as needed */
+}
+
+@keyframes slideBackground {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+    /* Adjust the translation to make the images move together */
+  }
+}
+
+
+
+.top-bar {
+  background-color: lightyellow;
+  height: 75px;
+  width: 100%;
+}
+
+/* CSS for the row container */
+/* CSS for the row container */
+.row-container {
+  display: flex;
+  flex-direction: row-reverse;
+  /* Start the columns from the right */
+  justify-content: flex-start;
+  /* Align columns to the left */
+}
+
+/* CSS for the column layout */
+.column {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Align items to the right in each column */
+  position: relative;
+  margin-right: 20px;
+
+  /* Add some space between columns */
+}
+
+.column2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Align items to the right in each column */
+  position: relative;
+  margin-right: 250px;
+
+
+  /* Add some space between columns */
+}
+
+.column3 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  /* Align items to the right in each column */
+  position: relative;
+  margin-right: 20px;
+
+
+  /* Add some space between columns */
+}
+
+#board {
+  left: 700px;
+
+}
+
+/* CSS for the square image */
+.square {
+  width: 400px;
+  height: 400px;
+  background-size: cover;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Comic Sans MS", cursive;
+  font-size: 36px;
+  /* Increase the font size */
+
+
+  background-color: #ffc107;
+  border-radius: 20px;
+
+}
+
+.label {
+  width: 400px;
+  height: 75px;
+  background-color: #f0f0f0;
+  margin-top: 20px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* Center the text horizontally */
+  font-family: "Arial", sans-serif;
+  /* Change the font family */
+  font-size: 30px;
+  /* Change the font size */
+  font-weight: bold;
+  /* Make the text bold */
+  color: #333;
+  /* Change the text color */
+
+}
+
+header .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.inputContainer {
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  /* Rounded corners */
+  padding: 10px;
+  /* Add some padding for space */
+  font-family: "Comic Sans MS", cursive;
+  /* Fun and playful font */
+  font-size: 24px;
+  /* Larger font size for kids */
+
+
+}
+
+#centeredText {
+  font-family: "Comic Sans MS", cursive;
+  /* Fun and playful font */
+  font-size: 24px;
+  /* Larger font size for kids */
+  /* Add some spacing between text and SketchPad */
+}
+
+.pad-container {
+  display: flex;
+  justify-content: center;
+  /* Center items horizontally */
+  align-items: center;
+  /* Center items vertically */
+  margin-bottom: 10px;
+  /* Add some spacing between the canvas and buttons container */
+}
+
+
+.button-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 30px;
+  /* Add some space between the buttons */
+}
+
+.button-container2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 30px;
+  /* Add some space between the buttons */
+  position: absolute;
+  top: 20%;
+
+}
+
+
+.icon {
+  margin-left: 3px;
+}
+
+#colorsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#colorsContainer button {
+  min-width: 30px;
+  min-height: 30px;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  margin: 4px 2px;
+  padding: 0;
+  will-change: transform;
+  transition: transform 0.2s ease;
+}
+
+#colorsContainer button.active {
+  border: 4px solid white;
+}
+
+#colorsContainer button:hover {
+  transform: scale(1.4);
+}
+
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  overscroll-behavior-y: contain;
+}
+
+body {
+  font-family: 'IBM Plex Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  display: flex;
+  flex-direction: column;
+  --primary: #6b023c;
+  --secondary: #8EE3C8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  color: #6b023c;
+  font-size: 60px;
+}
+
+p {
+  padding: 24px 0;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  border-bottom: 4px solid var(--secondary);
+}
+
+a:hover {
+  background: var(--secondary);
+  color: var(--primary);
+}
+
+header {
+  background-color: #f364a9;
+  width: 100%;
+  padding: 0 20px;
+  border-bottom: 8px solid var(--secondary);
+}
+
+#splash {
+  background-color: #f364a9;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px;
+  border-top: 10px solid var(--secondary);
+  overflow: auto;
+  transition: 1s transform;
+  transform: translate3d(0, 0, 0);
+  z-index: 2;
+}
+
+#splash.hidden {
+  transform: translate3d(0, -200%, 0);
+}
+
+#splash .content {
+  color: white;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#loaded {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+#loaded.hidden {
+  display: none;
+  pointer-events: none;
+}
+
+header .wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .top {
+  height: 84px;
+}
+
+#colorsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-bottom: 14px;
+  flex-wrap: wrap;
+  max-width: 1000px;
+}
+
+#colorsContainer button {
+  min-width: 30px;
+  min-height: 30px;
+  border: 4px solid transparent;
+  border-radius: 50%;
+  margin: 4px 2px;
+  padding: 0;
+  will-change: transform;
+  transition: transform 0.2 ease;
+}
+
+#colorsContainer button.active {
+  border: 4px solid white;
+}
+
+#colorsContainer button:hover {
+  transform: scale(1.4);
+}
+
+.controls {
+  display: flex;
+  flex-direction: row;
+}
+
+.box {
+  display: flex;
+  border: solid #ffea00 2px;
+  color: var(--primary) !important;
+  fill: var(--primary);
+  background: white;
+  box-shadow: 4px 4px 0 #ffea00;
+  height: 40px;
+  border-radius: 5px;
+  transition: top 0.2s ease;
+  position: relative;
+  top: -10px;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+  margin: 0 4px;
+  margin-right: 10px;
+}
+
+.box2 {
+  display: flex;
+  border: solid #ffea00 2px;
+  color: var(--primary) !important;
+  fill: var(--primary);
+  background: white;
+  box-shadow: 4px 4px 0 #ffea00;
+  height: 40px;
+  border-radius: 5px;
+  transition: top 0.2s ease;
+  position: relative;
+  top: -10px;
+  vertical-align: middle;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: bold;
+  margin: 0 4px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.box.active {
+  background-color: rgb(238, 46, 78);
+  /* Change to the desired active background color */
+  color: white;
+  /* Change to the desired active text color */
+  fill: white;
+  /* Change to the desired active fill color */
+  box-shadow: 4px 4px 0 #ffea00;
+  /* Change to the desired active box shadow */
+}
+
+.big {
+  margin: 10px 0;
+  font-size: 24px;
+  /* padding: 14px 32px; */
+  padding: 10px;
+  height: 75px;
+
+}
+
+.big2 {
+  margin: 10px 0;
+  font-size: 14px;
+  /* padding: 14px 32px; */
+  padding: 10px;
+  height: 65px;
+  width: 160px;
+  text-align: center;
+}
+
+.box:active {
+  top: 4px;
+  box-shadow: none;
+}
+
+.select-wrapper {
+  display: inline-block;
+  width: 255px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 4px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-transform: lowercase;
+  font-family: inherit;
+  font-size: 22px;
+  background: transparent;
+  border: none;
+  color: var(--primary);
+  width: 100%;
+}
+
+#sketch {
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+#sketch.loading {
+  pointer-events: none;
+  opacity: 0.3;
+  filter: blur(3px);
+}
+
+@media screen and (max-width: 700px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  p {
+    padding: 14px 0;
+    text-align: left;
+    font-size: 18px;
+  }
+
+  #splash {
+    padding: 24px;
+  }
+
+  .box {
+    height: 40px;
+    margin: 0 4px;
+  }
+
+  .big {
+    height: auto;
+  }
+
+  header .top {
+    flex-direction: column;
+    margin-bottom: 14px;
+    height: auto;
+  }
+
+  .controls {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .controls .select-wrapper {
+    min-width: 0;
+    font-size: 20px;
+    flex-grow: 1;
+  }
+}
+
+
+/* Define a CSS variable for the active color */
+:root {
+  --active-color: #ff0000;
+  /* Replace this with your desired active color */
+}
+
+/* Add the CSS rules */
+button.color-button {
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 20%;
+  margin-right: 5px;
+  background-color: transparent;
+  /* Set a transparent background */
+  transition: background-color 0.2s ease;
+  /* Add a transition for background-color */
+}
+
+button.color-button.active {
+  background-color: var(--active-color);
+  /* Change this to the color when the button is active */
+  animation: colorChangeAnimation 0.5s;
+  /* Add animation on color change */
+}
+
+/* Define the animation keyframes */
+@keyframes colorChangeAnimation {
+  0% {
+    transform: scale(1);
+    /* Initial scale */
+  }
+
+  50% {
+    transform: scale(1.2);
+    /* Scale up to 120% at 50% of the animation */
+  }
+
+  100% {
+    transform: scale(1);
+    /* Scale back to normal at the end of the animation */
+  }
+}
+
+.color-button:hover {
+  transform: scale(1.2);
+  /* Increase the size of the button on hover */
+}
+
+/* CSS for the "Undo" button */
+.undo-button {
+  background-color: #ffcc66;
+  border: 2px solid #ff9933;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+  color: #ff0000;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 2px 5px rgb(193, 181, 2);
+  width: 75px;
+  /* You can also set a fixed width */
+  height: 15px;
+  font-weight: bold;
+  /* Make the text bold */
+  font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.undo-button .icon {
+  margin-right: 5px;
+}
+
+.undo-button:hover {
+  background-color: #ff9933;
+}
+
+.undo-button:active {
+  transform: scale(0.95);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.forDrow {
+  width: 70%;
+  height: 400px;
+  background-color: white;
+}
+
+.wrapper {
+  margin-top: 10px;
+  margin-right: 10px;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(3, minmax(400px, 1fr));
+  position: relative;
+  transform: translateY(5%);
+  direction: ltr;
+}
+
+#download {
+  margin: 12px;
+}
+
+/***********************popUp menue style******************************/
+.popup {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 18px;
+  color: var(--primary);
+  font-weight: bold;
+  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.5);
+}
+
+.popup-text {
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.ok-button {
+  margin-top: 10px;
+  display: flex;
+  border: solid #ffea00 2px;
+  color: var(--primary);
+  fill: var(--primary);
+  background: white;
+  justify-content: center;
+  /* Center horizontally */
+  align-items: center;
+  /* Center vertically */
+  box-shadow: 4px 4px 0 #ffea00;
+  height: 40px;
+  width: 100px;
+  border-radius: 5px;
+  transition: top 0.2s ease;
+  top: -10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 24px;
+  /* Increase the font size for a bigger button */
+  font-family: inherit;
+  font-weight: bold;
+  text-justify: auto;
+}
+
+.ok-button.active {
+  background-color: white;
+  color: var(--primary);
+  fill: white;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 4px 4px 0 #ffea00;
+}
+
+.ok-button:active {
+  top: 4px;
+  box-shadow: none;
+}
+
+.controle_button {
+  position: absolute;
+  right: 0;
+}

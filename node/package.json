@@ -1,0 +1,12 @@
+{
+  "scripts": {
+    "postinstall": "node dataset_generator && node feature_extractor && node run_evaluation"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.10.0",
+    "canvas": "^2.10.2",
+    "random-forest-classifier": "^0.6.0",
+    "react-router-dom": "^6.15.0",
+    "svm": "^0.1.1"
+  }
+}

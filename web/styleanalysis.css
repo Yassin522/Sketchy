@@ -1,0 +1,71 @@
+/* styles.css */
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Subheader styling */
+h2 {
+    margin-top: 40px;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Sub-subheader styling */
+h3 {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
+
+/* Table styling */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    background-color: white;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ccc;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+/* Image styling */
+img {
+    display: block;
+    margin: 20px auto;
+    max-width: 100%;
+}
+
+/* Scatter plot container */
+#scatter-plot-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Plotly scatter plot styling */
+.plotly-html-widget {
+    width: 80%;
+    height: 500px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}

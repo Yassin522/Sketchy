@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  :root {
+    --active-color: #ff0000;
+
+  }
+
+
+  button.color-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    margin-right: 5px;
+    background-color: transparent;
+
+    transition: background-color 0.2s ease;
+
+  }
+
+  button.color-button.active {
+    background-color: var(--active-color);
+
+  }
+
+  #music {
+    display: none;
+  }
+
+  .music-controls {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+
+  .music-control {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin: 5px 0;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .music-controls {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .music-control {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 10px;
+  }
+
+
+  .music-control:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .music-control svg {
+    width: 24px;
+    height: 24px;
+    fill: #333;
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Main Page</title>
+  <link rel="stylesheet" href="main_styles.css">
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body>
+
+
+  <script src="../common/js_objects/training.js"></script>
+  <script src="../common/js_objects/testing.js"></script>
+  <script src="../common/js_objects/minMax.js"></script>
+  <script src="../common/js_objects/model.js"></script>
+
+  <script src="../common/constants.js"></script>
+  <script src="../common/utils.js"></script>
+  <script src="../common/network.js"></script>
+  <script src="../common/geometry.js"></script>
+  <script src="../common/draw.js"></script>
+  <script src="../common/featureFunctions.js"></script>
+  <script src="../common/classifiers/knn.js"></script>
+  <script src="../common/classifiers/mlp.js"></script>
+  <script src="mainSkitchPad.js"></script>
+
+  <script src="js/display.js"></script>
+  <script src="js/sketchPad.js"></script>
+  <script src="js/dataCleaner.js"></script>
+
+  <script src="./chart/graphics.js"></script>
+  <script src="./chart/math.js"></script>
+  <script src="./chart/chart.js"></script>
+  <script src="./chart/confusion.js"></script>
+
+
+
+
+  <div class="wrapper">
+
+    <div class="music-controls">
+      <audio id="music" controls autoplay preload="none">
+        <source src="Happy_Kid_s.mp3" type="audio/mp3">
+        Your browser does not support the audio element.
+      </audio>
+      <button id="playButton" class="music-control">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M8 5v14l11-7z" />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </button>
+      <button id="pauseButton" class="music-control">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z" />
+          <path d="M0 0h24v24H0z" fill="none" />
+        </svg>
+      </button>
+      <button id="volumeUpButton" class="music-control">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M7 9v6h4l5 5V4L11 9H7z" />
+        </svg>
+      </button>
+      <button id="volumeDownButton" class="music-control">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M7 9v6h4l5 5V4L11 9H7z" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="controle_button">
+      <a class="box2 big2 button" href="References.html">Referance</a>
+      <a class="box2 big2 button" href="sketchrnn.html">I can complete your drawing 😉</a>
+    </div>
+
+    <!-- First column -->
+    <div class="column" id="board">
+      <div class="inputContainer" id="inputContainer"></div>
+
+      <!-- Buttons -->
+      <div class="button-container">
+        <button class="box big button" id="help">Show help <span class="icon">?</span></button>
+        <button class="box big button" id="download">Download <span class="icon">⬇</span></button>
+        <button class="box big button" id="pin">pin image<span class="icon"></span></button>
+        <div id="popup" class="popup">
+          <div class="popup-content">
+            <p class="popup-text">Have fun with your art !</p>
+            <button class="box ok-button">OK</button>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+
+    <!-- Second column -->
+    <div class="column2">
+      <div id="statistics"></div>
+      <div class="label">
+        <div id="predictedLabelContainer"></div>
+      </div>
+      <div class="square" id="sq" onload="updateImage(label)">
+        YOU CAN DO IT start drawing 😉</div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  <script>
+    let canShowImage = false; // Initial value is false
+    const featureNames = training.featureNames;
+    const trainingSamples = training.samples;
+    const testingSamples = testing.samples;
+    const styles = utils.styles;
+    let tempLabel = "";
+    let pinned = false;
+
+
+    
+    //const kNN = new KNN(trainingSamples);
+    const mlp= new MLP([],[]);
+    mlp.load(model)
+    let correctCount = 0;
+    let totalCount = 0;
+    for (const testSample of testingSamples) {
+      testSample.truth = testSample.label;
+      testSample.label = "?";
+      const { label, nearestSamples } = mlp.predict(testSample.point);
+      testSample.label = label;
+      console.log(testSample);
+      testSample.nearestSamples = nearestSamples;
+      testSample.correct = testSample.label == testSample.truth;
+      totalCount++;
+      correctCount += testSample.correct ? 1 : 0;
+    }
+    
+
+
+
+
+    const sketchPad = new MainSketchPad(inputContainer, onDrawingUpdate);
+    sketchPad.canvas.style.cssText += "outline:10000px solid rgba(255,255,255,0.0);";
+    //Buttons function
+    label = "car";
+    const helpButton = document.getElementById("help");
+    helpButton.addEventListener("click", () => {
+      canShowImage = !canShowImage;
+      helpButton.classList.toggle("active");
+      console.log(label); // Toggle the "active" class on button click
+      updateImage(label);
+
+    })
+    const downloadButton = document.getElementById("download");
+    const pinButton = document.getElementById("pin");
+    //PopUp menu function
+    const popup = document.getElementById("popup");
+    const closeButton = document.querySelector(".ok-button");
+
+    closeButton.addEventListener("click", () => {
+      closeButton.classList.remove("active");
+      setTimeout(() => {
+        popup.style.display = "none";
+      }, 300);
+    });
+    downloadButton.addEventListener("click", () => {
+      console.log(sketchPad.paths);
+      popup.style.display = "flex";
+      closeButton.classList.add("active");
+      generateImageDownloadLink(sketchPad.paths);
+    });
+
+
+
+
+    pinButton.addEventListener("click", () => {
+      pinned = !pinned; // Toggle the pinned state
+      pinButton.classList.toggle("active", pinned);
+    })
+
+    function generateImageDownloadLink(paths) {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+
+      // Set canvas size based on your needs
+      const canvasWidth = 400;
+      const canvasHeight = 400;
+      canvas.width = canvasWidth;
+      canvas.height = canvasHeight;
+
+      // Draw paths on the canvas
+      draw.paths(ctx, paths);
+
+      // Convert canvas to data URL
+      const dataURL = canvas.toDataURL("image/jpg");
+
+      // Create a link element for downloading
+      const downloadLink = document.createElement("a");
+      downloadLink.href = dataURL;
+      downloadLink.download = "SketchY_" + tempLabel + ".jpg"; // Specify the filename for the downloaded image
+      downloadLink.textContent = "Download Image"; // You can customize the link text
+
+      // Trigger the download
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+
+      // Clean up
+      document.body.removeChild(downloadLink);
+    }
+
+
+    function updateImage(label) {
+      const squareElement = document.getElementById('sq');
+      if (canShowImage && !pinned) { // Check if canShowImage is true and the image is not pinned
+        let imageurl = getRandomImageUrl(label);
+        squareElement.style.backgroundImage = `url(${imageurl})`;
+        squareElement.innerText = ''; // Clear the text
+      } else if (!pinned) { // Check if the image is not pinned
+        squareElement.style.backgroundImage = 'none'; // Clear the image
+        squareElement.innerText = 'You can do it start drawing 😉'; // Show the text
+      }
+    }
+    function getRandomImageUrl(label) {
+      const folderPath = `hintImages/${label}`;
+      const imageIndices = [1, 2, 3, 4, 5];
+      const randomIndex = Math.floor(Math.random() * imageIndices.length);
+      const chosenIndex = imageIndices[randomIndex];
+      const imageUrl = `${folderPath}/${label}${chosenIndex}.jpg`;
+
+      return imageUrl;
+    }
+    function onDrawingUpdate(paths) {
+      const functions = featureFunctions.inUse.map((f) => f.function);
+      // point = functions.map((f) => f(paths));
+      point = functions[0](paths);
+      utils.normalizePoints([point], minMax);
+      //const { label, nearestSamples } = kNN.predict(point);
+      const { label, nearestSamples } = mlp.predict(point);
+      predictedLabelContainer.innerHTML = "Is it a " + label +" ?";
+      tempLabel = label;
+      updateImage(label);
+    }
+    document.addEventListener("DOMContentLoaded", function () {
+      var music = document.getElementById("music");
+
+      music.addEventListener("canplaythrough", function () {
+        music.play();
+      });
+
+      music.addEventListener("ended", function () {
+        music.currentTime = 0; // Reset the playback to the beginning
+        music.play();
+      });
+
+      music.preload = "auto";
+    });
+    const playButton = document.getElementById('playButton');
+    const pauseButton = document.getElementById('pauseButton');
+    const volumeUpButton = document.getElementById('volumeUpButton');
+    const volumeDownButton = document.getElementById('volumeDownButton');
+
+    playButton.addEventListener('click', () => {
+      music.play();
+    });
+
+    pauseButton.addEventListener('click', () => {
+      music.pause();
+    });
+
+    volumeUpButton.addEventListener('click', () => {
+      if (music.volume < 1) {
+        music.volume += 0.1;
+      }
+    });
+
+    volumeDownButton.addEventListener('click', () => {
+      if (music.volume > 0) {
+        music.volume -= 0.1;
+      }
+    });
+  </script>
+</body>
+
+</html>
