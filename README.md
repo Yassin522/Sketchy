@@ -42,4 +42,5 @@ https://github.com/Yassin522/Sketchy/assets/88105077/4f325d5c-e08f-4a58-b1f9-a84
 ![feature_distributions](https://github.com/Yassin522/Sketchy/assets/88105077/6016e102-8913-4df5-8634-442eee768908)
 ![feature_distributions2](https://github.com/Yassin522/Sketchy/assets/88105077/7343864b-4e95-4d51-a2ae-61c0b7943da8)
 
+![newplot](https://github.com/Yassin522/Sketchy/assets/88105077/a9bf7b29-a525-4439-a124-a6fc0e07deed)
 
