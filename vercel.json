@@ -1,0 +1,13 @@
+{
+    "version": 2,
+    "routes": [
+      { "src": "/data/(.*)", "dest": "/data/$1" },
+      { "src": "/web/(.*)", "dest": "/web/$1" },
+      { "src": "/common/(.*)", "dest": "/common/$1" },
+      { "src": "/python/(.*)", "dest": "/python/$1" },
+      { "src": "/node/(.*)", "dest": "/node/$1" },
+      { "src": "/resources/(.*)", "dest": "/resources/$1" },
+      { "src": "/", "dest": "/welcome.html" }
+    ]
+  }
+  
