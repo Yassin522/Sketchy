@@ -1,92 +1,46 @@
-# Drawing_ML
+# Sketchy: An AI-Powered Drawing Assistant for Children
+
+## About Sketchy
+Sketchy is an innovative system designed to assist children in their drawing endeavors using advanced machine learning algorithms. Our goal is to create an engaging, interactive learning environment that helps children develop their artistic skills. With Sketchy, young artists receive real-time feedback and support as they explore the world of art.
+
+## Features
+- **Interactive Drawing Assistance:** Utilizes machine learning to predict drawing patterns and provide helpful suggestions.
+- **Real-Time Feedback:** Offers immediate guidance to improve children's drawing skills.
+- **User-Friendly Interface:** Designed specifically for children, ensuring ease of use and a fun experience.
+
+## Technologies Used
+- Machine Learning Algorithms
+- Deep Learning
+- Neural Networks
+- Html
+- css
+- JS
 
 
 
-## Getting started
+```bash
+# Clone the repository
+git clone https://github.com/Yassin522/Sketchy.git
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
-
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
-
-## Add your files
-
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
-
+# Navigate to the project directory
+cd Sketchy
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/the_strongs/drawing_ml.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
 
-- [ ] [Set up project integrations](https://gitlab.com/the_strongs/drawing_ml/-/settings/integrations)
 
-## Collaborate with your team
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
 
-## Test and Deploy
 
-Use the built-in continuous integration in GitLab.
+https://github.com/Yassin522/Sketchy/assets/88105077/4f325d5c-e08f-4a58-b1f9-a84b49a39eb4
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
 
-***
+![pair_grid](https://github.com/Yassin522/Sketchy/assets/88105077/d1422a83-3cdc-46c4-a689-10361b1bd279)
+![pie_chart](https://github.com/Yassin522/Sketchy/assets/88105077/ad57d1ab-370b-4e14-a505-6250a6d60c5c)
 
-# Editing this README
+![correlation_heatmap_selected](https://github.com/Yassin522/Sketchy/assets/88105077/ad4213d3-9087-4a90-9502-062285d539a0)
+![correlation_heatmap](https://github.com/Yassin522/Sketchy/assets/88105077/e832eb90-b4a2-47eb-aaa7-f6f80b37af38)
+![feature_distributions](https://github.com/Yassin522/Sketchy/assets/88105077/6016e102-8913-4df5-8634-442eee768908)
+![feature_distributions2](https://github.com/Yassin522/Sketchy/assets/88105077/7343864b-4e95-4d51-a2ae-61c0b7943da8)
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
+![newplot](https://github.com/Yassin522/Sketchy/assets/88105077/a9bf7b29-a525-4439-a124-a6fc0e07deed)
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
